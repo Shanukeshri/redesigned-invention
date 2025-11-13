@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles inspired by the provided MainPage.css but using Tailwind utilities where possible */
+
+:root {
+  --container-max: 1280px;
+}
+
+/* Container utility */
+.container-lg {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-lg { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .container-lg { padding-left: 2rem; padding-right: 2rem; }
+}
+
+/* Hero overlay animation */
+.hero-tagline {
+  display: inline-block;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Marquee for testimonials */
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: marquee-scroll 30s linear infinite;
+}
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* small helper */
+.stat-progress {
+  background: #e5e7eb;
+  border-radius: 9999px;
+  height: 0.5rem;
+}
+.stat-progress > .fg {
+  background: #16a34a;
+  height: 100%;
+  border-radius: 9999px;
+}
+
+/* Small responsive tweaks */
+@media (min-width: 768px) {
+  .hero-content { padding: 2rem; }
+  .hero-title { font-size: 3.5rem; }
+}
